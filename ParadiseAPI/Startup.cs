@@ -18,6 +18,8 @@ using System.IO;
 using ParadiseAPI.Contracts;
 using NLog;
 using ParadiseAPI.Services;
+using AutoMapper;
+using ParadiseAPI.Mappings;
 
 namespace ParadiseAPI
 {
@@ -54,6 +56,7 @@ namespace ParadiseAPI
                 var xPath = Path.Combine(AppContext.BaseDirectory,xfile);
                 c.IncludeXmlComments(xPath);
             });
+            services.AddAutoMapper(typeof(Maps));
             services.AddSingleton<ILoggerService, LoggerService>();
             services.AddControllers();
         }
